@@ -13,7 +13,7 @@ Ensure you have the following installed on your system:
 Clone the repository and install dependencies:
 ```sh
 # Clone the repository
-git clone https://github.com/your-repo/bitprotect.git
+git clone https://github.com/Kanatha/BitProtect.git
 cd bitprotect
 
 # Install dependencies
