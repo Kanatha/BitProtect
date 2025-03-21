@@ -32,7 +32,7 @@ This will start the React application on `http://localhost:3000/`.
 ### 2. Start Electron
 Open another terminal in the project root directory and run:
 ```sh
-yarn run electron
+yarn run electron .
 ```
 This will launch the Electron application.
 
@@ -48,3 +48,5 @@ yarn run electron-pack
 
 ## License
 This project is licensed under the MIT License.
+
+![BitProtect UI](https://media.licdn.com/dms/image/v2/C5622AQF0o4BA2UFO8Q/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1661494786689?e=2147483647&v=beta&t=5XmJGitgwFduGcgbNag0uM-FgV1uzupCiAjH7iKd2xY)
