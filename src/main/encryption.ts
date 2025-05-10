@@ -15,10 +15,12 @@ function encryptData(data) {
   let encryptedData = cipher.update(data, 'utf8', 'hex')
   encryptedData += cipher.final('hex')
 
-  console.log(`Key: ${key.toString('hex')}`)
-  console.log(`IV: ${iv.toString('hex')}`)
-
-  return encryptedData
+  // Return the encrypted data, key, and IV
+  return {
+    encryptedData: encryptedData,
+    key: key,
+    iv: iv
+  }
 }
 
 // Function to decrypt data
@@ -31,20 +33,26 @@ function decryptData(encryptedData, key, iv) {
 // Function to encrypt all files in a directory
 export function encryptDirectory(directoryPath) {
   const files = fs.readdirSync(directoryPath) // Read all files in the directory
+  const encryptionResults = [] // To store the keys and IVs of encrypted files
 
   files.forEach((file) => {
     const filePath = path.join(directoryPath, file)
     if (fs.statSync(filePath).isFile()) {
       // Check if it's a file
       const fileContent = fs.readFileSync(filePath, 'utf8') // Read file content
-      const encrypted = encryptData(fileContent) // Encrypt content
+      const result = encryptData(fileContent) // Encrypt content
 
       const encryptedFilePath = filePath + '.enc' // Create new file path for encrypted file
-      fs.writeFileSync(encryptedFilePath, encrypted) // Write encrypted content to new file
+      fs.writeFileSync(encryptedFilePath, result.encryptedData) // Write encrypted content to new file
 
       console.log(`Encrypted: ${filePath} -> ${encryptedFilePath}`)
+      console.log({ file: file, key: result.key.toString('hex'), iv: result.iv.toString('hex') })
+
+      encryptionResults.push([file, result.key.toString('hex'), result.iv.toString('hex')])
     }
   })
+
+  return encryptionResults // Return the array of keys and IVs for all files
 }
 
 // Function to decrypt all files in a directory

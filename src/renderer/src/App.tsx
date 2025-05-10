@@ -2,6 +2,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import LoginScreen from './pages/loginScreen'
 import HomeScreen from './pages/mainScreen'
+import SignUpForm from './pages/signUp'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/home" element={<HomeScreen />} />
+        <Route path="/signUp" element={<SignUpForm />} />
       </Routes>
     </Router>
   )
