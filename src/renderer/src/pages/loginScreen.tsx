@@ -39,7 +39,7 @@ function LoginScreen(): React.JSX.Element {
       />
 
       <button
-        class="w-100 h-10 my-8 bg-blue-500 rounded-lg text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-gray-600 hover:shadow-2xl hover:h-12 hover:w-105 hover:cursor-grab"
+        class="w-100 h-10 my-8 bg-blue-500 rounded-lg text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-gray-600 hover:shadow-2xl hover:h-12 hover:w-105 hover:cursor-pointer"
         onClick={ipcHandle}
       >
         Log in

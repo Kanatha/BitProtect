@@ -1,7 +1,8 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import { encryptDirectory, decryptDirectory } from './encryption'
 
 function createWindow(): void {
   // Create the browser window.
@@ -55,6 +56,30 @@ app.whenReady().then(() => {
     //Check database for auth
     console.log(email, password)
     event.sender.send('LoginCheckResponse', { email, password })
+  })
+
+  ipcMain.handle('decrypt-data', async (event, { hexKey, hexIv }) => {
+    const key = Buffer.from(hexKey, 'hex')
+    const iv = Buffer.from(hexIv, 'hex')
+
+    console.log(key, iv)
+    decryptDirectory('D:/', key, iv)
+  })
+
+  ipcMain.handle('select-directory', async (event, operation) => {
+    const properties =
+      operation === 'export' ? ['openDirectory', 'createDirectory'] : ['openDirectory']
+    const result = await dialog.showOpenDialog({
+      properties: properties
+    })
+    if (result.canceled) {
+      console.log('canceled')
+      return null
+    } else {
+      console.log(result.filePaths[0])
+      encryptDirectory(result.filePaths[0])
+      return result.filePaths[0]
+    }
   })
 
   createWindow()
