@@ -1,34 +1,87 @@
-# bitprotect
+# 🔐 BitProtect
 
-An Electron application with React and TypeScript
+BitProtect is a cross-platform desktop application built with [Electron](https://www.electronjs.org/), [React](https://reactjs.org/), and [Tailwind CSS](https://tailwindcss.com/). It allows you to **securely encrypt your files** while safely storing the encryption keys on a server, providing robust and seamless file protection across devices.
 
-## Recommended IDE Setup
+---
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+## 🚀 Features
 
-## Project Setup
+- ⚡ Built with Electron, React, and Tailwind CSS
+- 🔒 Encrypts your files locally before upload
+- ☁️ Safely stores encryption keys on a remote server
+- 💻 Cross-platform support: Windows, macOS, and Linux
+- 🧩 Simple and intuitive UI
 
-### Install
+---
 
-```bash
-$ yarn
-```
+## 🛠️ Installation & Build
 
-### Development
-
-```bash
-$ yarn dev
-```
-
-### Build
+Clone the repository:
 
 ```bash
-# For windows
-$ yarn build:win
-
-# For macOS
-$ yarn build:mac
-
-# For Linux
-$ yarn build:linux
+git clone https://github.com/Kanatha/BitProtect.git
+cd bitprotect
 ```
+
+## Install dependencies:
+
+```bash
+yarn install
+```
+
+## Build Commands
+
+For Windows
+
+```bash
+yarn build:win
+
+```
+
+For macOS
+
+```bash
+
+yarn build:mac
+```
+
+For Linux
+
+```bash
+yarn build:linux
+```
+
+## 📁 How It Works
+
+Select files to encrypt within the app.
+
+Files are encrypted locally using strong encryption algorithms.
+
+The encrypted file is stored, and the encryption key is sent securely to the server.
+
+Decryption is only possible through the BitProtect app with your credentials.
+
+## 🧪 Tech Stack
+
+Electron – Desktop runtime
+
+React – UI framework
+
+Tailwind CSS – Utility-first styling
+
+Yarn – Package and build manager
+
+## 🧾 License
+
+This project is licensed under the MIT License.
+
+## 🙌 Contributions
+
+Contributions, issues, and feature requests are welcome!
+Feel free to open an issue or submit a pull request.
+
+## 📬 Contact
+
+For questions, reach out via luka.halzer@leriha.si or open an issue on GitHub.
+
+⚠️ Disclaimer: BitProtect provides strong file encryption, but always back up your original files and encryption keys. The authors are not responsible for data loss.
